@@ -8,7 +8,7 @@ $number = 0;
 
 <p><a href="?act=logout">Đăng xuất</a></p>
 <p><a href="?act=uploads">thêm mặt hàng</a></p>
-<p><a href="?act=uploads">thêm danh mục sản phẩm</a></p>
+<p><a href="?act=category">thêm danh mục sản phẩm</a></p>
 <table border="1">
     <?php foreach ($product as $products) : ?>
         <tr>

@@ -30,7 +30,7 @@ if (isset($_POST['btn_login'])) {
     #kết luận
     if (empty($error)) {
         //xử lí login
-        $rows = mysqli_query($conn, "SELECT * FROM tbl_user where user_name='$username' and password='$password'");
+        $rows = mysqli_query($conn, "SELECT * FROM tbl_admin where username='$username' and password='$password'");
         $count = mysqli_num_rows($rows);
         if ($count == 1) {
             $_SESSION['is_login'] = true;

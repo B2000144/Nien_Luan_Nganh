@@ -4,6 +4,8 @@ ob_start();
 require "data/connect.php";
 require "lib/url.php";
 require "lib/show_data.php";
+require "lib/cart.php";
+require "lib/template.php";
 $mod = !empty($_GET['mod']) ? $_GET['mod'] : 'home';
 $act = !empty($_GET['act']) ? $_GET['act'] : 'main';
 $path = "modules/{$mod}/{$act}.php";

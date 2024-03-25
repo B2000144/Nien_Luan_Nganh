@@ -1,6 +1,5 @@
 <?php
 require "../data/connect.php";
-
 $sql = "SELECT * FROM `category_product`";
 $rows = mysqli_query($conn, $sql);
 $category = mysqli_fetch_all($rows, MYSQLI_ASSOC);
@@ -9,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST['name_product'];
     $code = $_POST['code_product'];
     $price = $_POST['price_product'];
+    $number = $_POST['number_product'];
     $desc = $_POST['desc_product'];
     $detail = $_POST['detail_product'];
     $date = $_POST['create_date'];
@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $selected_category_id = $_POST['category'];
 
             // Sửa câu lệnh INSERT INTO để bổ sung giá trị cho cột id_categoty
-            $sql_insert = "INSERT INTO `tbl_product`(`name_product`, `code_product`, `price_product`, `desc_product`, `detail_product`, `image_product`, `create_date`, `id_category`) 
-            VALUES ('$name','$code','$price','$desc','$detail','$path_file','$date', '$selected_category_id')";
+            $sql_insert = "INSERT INTO `tbl_product`(`name_product`, `code_product`, `price_product`,`number_product`, `desc_product`, `detail_product`, `image_product`, `create_date`, `id_category`) 
+            VALUES ('$name','$code','$price','$number','$desc','$detail','$path_file','$date', '$selected_category_id')";
 
             // Thực thi câu lệnh SQL
             if (mysqli_query($conn, $sql_insert)) {
@@ -53,6 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <input type="text" name="code_product">
         <h2>Giá sản phẩm</h2>
         <input type="text" name="price_product">
+        <h2>Số lượng sản phẩm trong kho</h2>
+        <input type="text" name="number_product">
         <h2>Mô tả sản phẩm</h2>
         <input type="text" name="desc_product">
         <h2>Chi tiết sản phẩm</h2>
