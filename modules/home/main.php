@@ -3,50 +3,11 @@ $sql = "SELECT * FROM `tbl_product`";
 $rows = mysqli_query($conn, $sql);
 $product = mysqli_fetch_all($rows, MYSQLI_ASSOC);
 get_header();
+get_header_top();
 ?>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm bg-light">
-
-            <div class="container-fluid">
-                <!-- Links -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link 2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link 3</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="?mod=cart&act=show"><i class="fa-solid fa-cart-shopping "></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="?mod=user&act=login"><i class="fa-regular fa-user"></i>
-                            <?php
-                            if (isset($_SESSION['username'])) {
-                                echo $_SESSION['username']; // Thêm lệnh echo để hiển thị tên người dùng
-                            ?>
-                                <a href="?mod=user&act=log_out"><i class=""></i>đăng xuất</a>
-                            <?php } else {
-                                // Nếu không có người dùng đăng nhập, bạn có thể hiển thị một thông báo khác ở đây
-                                echo "Đăng nhập";
-                            }
-                            ?>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-
-                    </li>
-                </ul>
-            </div>
-
-        </nav>
-    </header>
+    <?php get_header_botton() ?>
     <main>
         <div class="container">
             <div class="row">

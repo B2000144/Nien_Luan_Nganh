@@ -17,3 +17,21 @@ function get_footer()
         echo "Không tồn tại file đường dẫn {$path_footer}";
     }
 }
+function get_header_top()
+{
+    $path_footer = "inc/header_top.php";
+    if (file_exists($path_footer)) {
+        require $path_footer;
+    } else {
+        echo "Không tồn tại file đường dẫn {$path_footer}";
+    }
+}
+function get_header_botton()
+{
+    $path_footer = "inc/header_botton.php";
+    if (file_exists($path_footer)) {
+        require $path_footer;
+    } else {
+        echo "Không tồn tại file đường dẫn {$path_footer}";
+    }
+}
