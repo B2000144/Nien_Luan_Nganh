@@ -63,6 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <input type="date" name="create_date">
         <h2>Hình ảnh</h2>
         <input type="file" name="file"> <br>
+        <h2>Ảnh mô tả</h2>
+        <input type="file" name="files[]" multiple="multiple"> <br>
         <h2>Danh mục sản phẩm</h2>
         <select name="category" id="category">
             <?php foreach ($category as $cate) : ?>

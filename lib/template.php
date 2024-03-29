@@ -26,9 +26,18 @@ function get_header_top()
         echo "Không tồn tại file đường dẫn {$path_footer}";
     }
 }
-function get_header_botton()
+function get_header_bottom()
 {
     $path_footer = "inc/header_botton.php";
+    if (file_exists($path_footer)) {
+        require $path_footer;
+    } else {
+        echo "Không tồn tại file đường dẫn {$path_footer}";
+    }
+}
+function get_banner()
+{
+    $path_footer = "inc/banner.php";
     if (file_exists($path_footer)) {
         require $path_footer;
     } else {

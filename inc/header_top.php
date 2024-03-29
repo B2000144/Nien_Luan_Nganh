@@ -26,6 +26,7 @@ get_header();
         display: flex;
         align-items: center;
         justify-content: center;
+        background-image: url(../public/images/banner.jpg);
     }
 
     .find_product input[name="search"] {

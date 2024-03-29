@@ -1,12 +1,14 @@
 <?php
 $code = rand(0, 9999);
-if (isset($_POST['btn_submit'])) {
-    $email = $_POST['email'];
-    $name = $_POST['name'];
-    $phone_number = $_POST['phone_number'];
-    $address = $_POST['address'];
-    $note = $_POST['note'];
-    $sql = "INSERT INTO `tbl_info_cart`( `email_cart`, `name_cart`, `phone_number_cart`, `address_cart`, `note_cart`,`code_order`) VALUES ('$email','$name','$phone_number','$address','$note','$code')";
+if (isset($_GET['orderType'])) {
+    $payment = $_GET['orderType'];
+    $email = $_GET['email'];
+    $name = $_GET['name'];
+    $phone_number = $_GET['phone_number'];
+    $address = $_GET['address'];
+    $note = $_GET['note'];
+    $location = $_GET['location'];
+    $sql = "INSERT INTO `tbl_info_cart`( `email_cart`, `name_cart`, `phone_number_cart`, `address_cart`, `note_cart`, `code_order`, `payment`, `location`) VALUES ('$email','$name','$phone_number','$address','$note','$code','$payment','$location')";
     if (mysqli_query($conn, $sql)) {
         echo "đặt hàng thành công";
     } else {
@@ -24,4 +26,5 @@ if (isset($_POST['btn_submit'])) {
     }
 }
 unset($_SESSION['cart']);
+unset($_SESSION['cart']['order']);
 redirect("?mod=cart&act=thank");

@@ -1,4 +1,6 @@
 <?php get_header();
+get_header_top();
+get_header_bottom();
 if (isset($_POST['btn_login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -12,58 +14,60 @@ if (isset($_POST['btn_login'])) {
     }
 }
 ?>
-<div class="container w-50 border pt-5 mt-5">
-    <form method="POST">
-        <!-- Email input -->
-        <div class="form-outline mb-4">
-            <input type="text" name="username" id="form2Example1" class="form-control" />
-            <label class="form-label" for="form2Example1">Tên đăng nhập</label>
-        </div>
+<style>
+    .main-login {
+        background-color: #F6EEE1;
+        height: 700px;
+    }
 
-        <!-- Password input -->
-        <div class="form-outline mb-4">
-            <input type="password" name="password" id="form2Example2" class="form-control" />
-            <label class="form-label" for="form2Example2">Mật khẩu</label>
-        </div>
+    .img-login {
+        height: 665px;
 
-        <!-- 2 column grid layout for inline styling -->
-        <div class="row mb-4">
-            <div class="col d-flex justify-content-center">
-                <!-- Checkbox -->
-                <div class="form-check">
-                    <input class="form-check-input" name="remember_login" type="checkbox" value="" id="form2Example31" checked />
-                    <label class="form-check-label" for="form2Example31"> Ghi nhớ đăng nhập</label>
-                </div>
+    }
+
+    .form-input {
+        width: 100%;
+        appearance: none;
+        height: 50px;
+        border: 1px solid hsla(0, 0%, 44%, .25);
+        border-radius: 20px;
+        transition: all .25s linear;
+        margin: 20px 0;
+    }
+
+    .title_login {
+        font-size: 36px;
+        font-weight: 800;
+    }
+</style>
+<div class="main-login position-relative">
+    <img class="img-login position-absolute " src="https://js0fpsb45jobj.vcdn.cloud/storage/upload/media/login/image83-standard-scale-2-00x-gigapixel.png" alt="">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-4  bg-white mt-5 rounded p-4">
+                <p class="text-start title_login pt-2">Đăng nhập</p>
+                <p class="text-start pb-3">Trở thành thành viên <a href="?mod=user&act=Register">Đăng kí ngay</a></p>
+                <form method="POST">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <p class="text-start m-0">Tài khoản</p>
+                        </div>
+                        <div class="col-md-12 pb-5">
+                            <input class="form-input m-0" type="text" name="username">
+                        </div>
+                        <div class="col-md-12">
+                            <p class="text-start m-0">Mật khẩu</p>
+                        </div>
+                        <div class="col-md-12 pb-5">
+                            <input class="form-input  m-0" type="text" name="password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5"><button type="submit" name="btn_login" class="btn btn-dark btn-block mb-4">Đăng nhập</button></div>
+                        <div class="col-md-7"><button type="submit" name="btn_login" class="btn btn-block mb-4">Quên mật khẩu</button></div>
+                    </div>
             </div>
-
-            <div class="col">
-                <!-- Simple link -->
-                <a href="#!">Forgot password?</a>
-            </div>
+            </form>
         </div>
-
-        <!-- Submit button -->
-        <button type="submit" name="btn_login" class="btn btn-primary btn-block mb-4">Sign in</button>
-
-        <!-- Register buttons -->
-        <div class="text-center">
-            <p>Not a member? <a href="#!">Register</a></p>
-            <p>or sign up with:</p>
-            <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-facebook-f"></i>
-            </button>
-
-            <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-google"></i>
-            </button>
-
-            <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-twitter"></i>
-            </button>
-
-            <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-github"></i>
-            </button>
-        </div>
-    </form>
+    </div>
 </div>

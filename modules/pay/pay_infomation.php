@@ -36,7 +36,7 @@ $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 $orderInfo = "Thanh toán qua mã QR MoMo";
 $amount = "$total_order";
 $orderId = time() . "";
-$redirectUrl = "http://localhost:3000/index.php?mod=cart&act=order";
+$redirectUrl = "http://localhost:3000/index.php?mod=cart&act=payment";
 $ipnUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
 $extraData = "";
 
