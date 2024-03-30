@@ -2,7 +2,7 @@
 $rows_product = mysqli_query($conn, "SELECT * FROM `tbl_product`");
 $num_rows = mysqli_num_rows($rows_product);
 // số lượng sản phẩn cần hiển thị trên trang
-$num_per_page = 2;
+$num_per_page = 8;
 // số lượng sản phẩm khi truy vấn ra 
 $total_row = $num_rows;
 // để dùng vòng lặp for để tính ra số trang được hiển thị
@@ -94,10 +94,10 @@ get_header_top();
                     <div class="col-sm-6 col-md-4 col-lg-3 card_product">
                         <div class="card position-relative">
                             <img src="<?php echo "../../admin/" . $products['image_product'] ?>" alt="" class="img_product">
-                            <a href="?mod=cart&act=add&id=<?= $products['product_id'] ?>" class="buy_product position-absolute w-100"><input type="submit" value="Thêm vào giỏ hàng" class="btn w-100"></a>
+                            <a href="?mod=cart&act=add&id=<?= $products['product_id'] ?>" class="buy_product position-absolute w-100"> <input type="submit" value="Thêm vào giỏ hàng" class="btn w-100"></a>
                         </div>
                         <div class="card-body text-start">
-                            <a href="?mod=page&act=detail&id=<?= $products['product_id'] ?>">
+                            <a href="?mod=product&act=detail&id=<?= $products['product_id'] ?>">
                                 <p class="name_product"><?= $products['name_product'] ?></p>
                             </a>
                             <p class="code_product"><?= $products['code_product'] ?></p>
