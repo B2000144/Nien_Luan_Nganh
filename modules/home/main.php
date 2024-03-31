@@ -13,8 +13,6 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $start = ($page - 1) * $num_per_page;
 $result = mysqli_query($conn, "SELECT * FROM `tbl_product` LIMIT {$start}, {$num_per_page}");
 $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-
 get_header();
 get_header_top();
 
