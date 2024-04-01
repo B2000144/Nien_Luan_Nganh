@@ -51,7 +51,7 @@ get_header();
     <div class="row">
         <div class="col-md-4 header_hotline"><i class="fa-solid fa-phone icon_phone_hotline"></i><span class="hotline_phone">Hotline đặt hàng 0704796583</span></div>
         <div class="col-md-8 find_product position-relative">
-            <form action="" method="post">
+            <form action="?mod=search&act=search" method="post">
                 <input type="text" name="search" placeholder="tìm kiếm sản phẩm">
                 <button type="submit" class="position-absolute"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>

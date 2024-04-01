@@ -110,11 +110,6 @@ $category = mysqli_fetch_assoc($row_cate);
             </div>
 
         </div>
-
-
-
-
-
-
     </div>
 </div>
+<?php get_footer() ?>

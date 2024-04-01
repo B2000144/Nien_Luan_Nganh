@@ -39,36 +39,34 @@ $category = mysqli_fetch_all($rows_category, MYSQLI_ASSOC);
     }
 
     .navbar-nav :hover .nav-link-separate::after {
-        display: block;
+        display: flex;
+
     }
 
     .color-badge {
         color: #fff;
         background-color: #00ADEF;
     }
+
+    .logo-web {
+        width: 50px;
+    }
 </style>
 <div class="row header-bottom">
-    <div class="col-md-3">Logo</div>
+    <div class="col-md-3"><img class="logo-web" src="../public/images/logo_web.png" alt=""></div>
     <div class="col-md-9">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light  ">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white  ">
             <div class="container-fluid justify-content-around">
                 <ul class="navbar-nav  navbar-left">
                     <li class="nav-item">
-                        <a href="#" class="nav-link nav-link-separate">Hàng mới</a>
+                        <a href="?mod=home&act=main" class="nav-link nav-link-separate">Trang chủ</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link nav-link-separate">Váy đầm</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link nav-link-separate" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Thời trang
-                        </a>
-                        <ul class="dropdown-menu">
-                            <?php foreach ($category as $item) : ?>
-                                <li><a class="dropdown-item text-center" href="?mod=product&act=product_category&id=<?= $item['id_category'] ?>"><?= $item['category_name'] ?></a></li>
-                            <?php endforeach; ?>
-                        </ul>
+                    <?php foreach ($category as $item) : ?>
+                        <li class="nav-item">
 
+                            <a class="nav-link nav-link-separate" href="?mod=product&act=product_category&id=<?= $item['id_category'] ?>"><?= $item['category_name'] ?></a>
+                        </li>
+                    <?php endforeach; ?>
                     </li>
                 </ul>
                 <ul class="navbar-nav navbar-right">
@@ -90,7 +88,7 @@ $category = mysqli_fetch_all($rows_category, MYSQLI_ASSOC);
                 </a>
                 </li>
                 <li class="nav-item">
-                    <button type="button" class=" position-relative border-0">
+                    <button type="button" class=" position-relative border-0 bg-white">
                         <a class="nav-link" href="?mod=cart&act=show"><i class="fa-solid fa-cart-shopping "></i></a>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill color-badge">
                             <?php if (isset($_SESSION['cart'])) {

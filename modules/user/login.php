@@ -30,7 +30,7 @@ if (isset($_POST['btn_login'])) {
 <style>
     .main-login {
         background-color: #F6EEE1;
-        height: 700px;
+        height: 770px;
     }
 
     .img-login {
@@ -86,3 +86,4 @@ if (isset($_POST['btn_login'])) {
         </div>
     </div>
 </div>
+<?php get_footer() ?>

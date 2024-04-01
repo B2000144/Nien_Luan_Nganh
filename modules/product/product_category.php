@@ -7,6 +7,10 @@ get_header();
 get_header_top();
 ?>
 <style>
+    .main-product_category {
+        height: 760px;
+    }
+
     .card {
         width: 235px;
         height: 335px;
@@ -61,7 +65,7 @@ get_header_top();
 <body>
     <?php get_header_bottom() ?>
     <main>
-        <div class="container ">
+        <div class="container main-product_category ">
             <div class="row ">
                 <?php foreach ($product as $products) : ?>
                     <div class="col-sm-6 col-md-4 col-lg-3 card_product">
@@ -70,7 +74,7 @@ get_header_top();
                             <a href="?mod=cart&act=add&id=<?= $products['product_id'] ?>" class="buy_product position-absolute w-100"><input type="submit" value="Thêm vào giỏ hàng" class="btn w-100"></a>
                         </div>
                         <div class="card-body text-start">
-                            <a href="?mod=page&act=detail&id=<?= $products['product_id'] ?>">
+                            <a href="?mod=product&act=detail&id=<?= $products['product_id'] ?>">
                                 <p class="name_product"><?= $products['name_product'] ?></p>
                             </a>
                             <p class="code_product"><?= $products['code_product'] ?></p>

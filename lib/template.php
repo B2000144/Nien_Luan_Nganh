@@ -44,3 +44,12 @@ function get_banner()
         echo "Không tồn tại file đường dẫn {$path_footer}";
     }
 }
+function get_slider()
+{
+    $path_footer = "inc/slider.php";
+    if (file_exists($path_footer)) {
+        require $path_footer;
+    } else {
+        echo "Không tồn tại file đường dẫn {$path_footer}";
+    }
+}

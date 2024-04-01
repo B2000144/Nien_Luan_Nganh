@@ -10,6 +10,10 @@ $products = mysqli_fetch_all($row, MYSQLI_ASSOC);
 
 ?>
 <style>
+    .main-cart-show {
+        height: 750px;
+    }
+
     .title-cart {
         font-size: 30px;
         font-weight: 700;
@@ -70,7 +74,7 @@ $products = mysqli_fetch_all($row, MYSQLI_ASSOC);
         font-weight: 700;
     }
 </style>
-<div class="container">
+<div class="container main-cart-show">
     <p class="text-start pb-5 title-cart">Giỏ hàng</p>
     <div class="row cart-left">
         <div class="col-md-8">
