@@ -1,5 +1,7 @@
 <?php
 require "../data/connect.php";
+require "inc/header.php";
+require "inc/nav.php";
 $sql = "SELECT * FROM `category_product`";
 $rows = mysqli_query($conn, $sql);
 $category = mysqli_fetch_all($rows, MYSQLI_ASSOC);
@@ -42,35 +44,36 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 ?>
 
-<html>
-
-<body>
-    <h1>Form</h1>
-    <form action="" enctype="multipart/form-data" method="POST">
-        <h2>Tên sản phẩm</h2>
-        <input type="text" name="name_product">
-        <h2>Mã sản phẩm</h2>
-        <input type="text" name="code_product">
-        <h2>Giá sản phẩm</h2>
-        <input type="text" name="price_product">
-        <h2>Số lượng sản phẩm trong kho</h2>
-        <input type="text" name="number_product">
-        <h2>Mô tả sản phẩm</h2>
-        <input type="text" name="desc_product">
-        <h2>Chi tiết sản phẩm</h2>
-        <textarea name="detail_product" id="" cols="30" rows="10"></textarea>
-        <h2>Ngày thêm sản phẩm</h2>
-        <input type="date" name="create_date">
-        <h2>Hình ảnh</h2>
-        <input type="file" name="file"> <br>
-        <h2>Ảnh mô tả</h2>
-        <input type="file" name="files[]" multiple="multiple"> <br>
-        <h2>Danh mục sản phẩm</h2>
-        <select name="category" id="category">
-            <?php foreach ($category as $cate) : ?>
-                <option value="<?= $cate['id_category'] ?>"><?= $cate['category_name'] ?></option>
-            <?php endforeach; ?>
-        </select><br>
-        <input type="submit" value="Thêm mới">
-    </form>
-    <a href="?act=main">Về trang quản trị
+<div class="row">
+    <?php require "inc/nav_bar.php"; ?>
+    <div class="col-md-8">
+        <h1>Form</h1>
+        <form action="" enctype="multipart/form-data" method="POST">
+            <h2>Tên sản phẩm</h2>
+            <input type="text" name="name_product">
+            <h2>Mã sản phẩm</h2>
+            <input type="text" name="code_product">
+            <h2>Giá sản phẩm</h2>
+            <input type="text" name="price_product">
+            <h2>Số lượng sản phẩm trong kho</h2>
+            <input type="text" name="number_product">
+            <h2>Mô tả sản phẩm</h2>
+            <input type="text" name="desc_product">
+            <h2>Chi tiết sản phẩm</h2>
+            <textarea name="detail_product" id="" cols="30" rows="10"></textarea>
+            <h2>Ngày thêm sản phẩm</h2>
+            <input type="date" name="create_date">
+            <h2>Hình ảnh</h2>
+            <input type="file" name="file"> <br>
+            <h2>Ảnh mô tả</h2>
+            <input type="file" name="files[]" multiple="multiple"> <br>
+            <h2>Danh mục sản phẩm</h2>
+            <select name="category" id="category">
+                <?php foreach ($category as $cate) : ?>
+                    <option value="<?= $cate['id_category'] ?>"><?= $cate['category_name'] ?></option>
+                <?php endforeach; ?>
+            </select><br>
+            <input type="submit" value="Thêm mới">
+        </form>
+    </div>
+</div>

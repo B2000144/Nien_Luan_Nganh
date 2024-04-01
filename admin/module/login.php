@@ -53,52 +53,64 @@ if (isset($_POST['btn_login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .form-input {
+        width: 100%;
+        appearance: none;
+        height: 50px;
+        border: 1px solid hsla(0, 0%, 44%, .25);
+        border-radius: 20px;
+        transition: all .25s linear;
+        margin: 20px 0;
+    }
+</style>
 
 <body>
-    <div id="main_login_admin">
+    <div id="main_login_admin bg-secondary">
         <div class="container d-flex justify-content-center lign-items-center mt-5 pt-5 ">
-            <form action="" method="POST">
-                <h1>Đăng nhập trang quản trị</h1>
-                <div class="mb-3">
+            <div class="card p-5">
+                <form action="" method="POST">
+                    <h1>Đăng nhập trang quản trị</h1>
+                    <div class="mb-3">
+                        <?php
+                        if (!empty($error['username'])) {
+                        ?>
+                            <p class="error">
+                                <?php echo $error['username']; ?>
+                            </p>
+                        <?php
+                        }
+                        ?>
+                        <input type="text" name="username" class="form-input " placeholder="Tài khoản">
+                    </div>
+                    <div class="mb-3">
+                        <?php
+                        if (!empty($error['password'])) {
+                        ?>
+                            <p class="error">
+                                <?php echo $error['password']; ?>
+                            </p>
+                        <?php
+                        }
+                        ?>
+                        <input type="password" name="password" class="form-input" placeholder="Mật khẩu">
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" name="btn_login" class="btn btn-primary w-100" value="Đăng nhập">
+                    </div>
                     <?php
-                    if (!empty($error['username'])) {
+                    if (!empty($error['account'])) {
                     ?>
                         <p class="error">
-                            <?php echo $error['username']; ?>
+                            <?php echo $error['account']; ?>
                         </p>
                     <?php
                     }
                     ?>
-                    <input type="text" name="username" class="w-100" placeholder="Tài khoản">
-                </div>
-                <div class="mb-3">
-                    <?php
-                    if (!empty($error['password'])) {
-                    ?>
-                        <p class="error">
-                            <?php echo $error['password']; ?>
-                        </p>
-                    <?php
-                    }
-                    ?>
-                    <input type="password" name="password" class="w-100" placeholder="Mật khẩu">
-                </div>
-                <div class="mb-3">
-                    <input type="submit" name="btn_login" class="btn btn-primary w-100" value="Đăng nhập">
-                </div>
-                <?php
-                if (!empty($error['account'])) {
-                ?>
-                    <p class="error">
-                        <?php echo $error['account']; ?>
-                    </p>
-                <?php
-                }
-                ?>
 
-            </form>
+                </form>
+            </div>
         </div>
-
     </div>
 </body>
 <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">

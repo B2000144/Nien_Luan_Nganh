@@ -1,6 +1,7 @@
 <?php
 require "../data/connect.php";
-
+require "inc/header.php";
+require "inc/nav.php";
 // lấy dữ liệu bảng categori
 $sql = "SELECT * FROM `category_product`";
 $rows = mysqli_query($conn, $sql);
@@ -48,37 +49,36 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 }
 ?>
 
-<html>
-
-<body>
-    <h1>Form</h1>
-    <form action="" enctype="multipart/form-data" method="POST">
-        <h2>Tên sản phẩm</h2>
-        <input type="text" name="name_product" value="<?= $product['name_product'] ?>">
-        <h2>Mã sản phẩm</h2>
-        <input type="text" name="code_product" value="<?= $product['code_product'] ?>">
-        <h2>Giá sản phẩm</h2>
-        <input type="text" name="price_product" value="<?= $product['price_product'] ?>">
-        <h2>Mô tả sản phẩm</h2>
-        <input type="text" name="desc_product" value="<?= $product['desc_product'] ?>">
-        <h2>Chi tiết sản phẩm</h2>
-        <textarea name="detail_product" id="" cols="30" rows="10"><?= $product['desc_product'] ?></textarea>
-        <h2>Ngày thêm sản phẩm</h2>
-        <input type="date" name="create_date" value="<?= $product['create_date'] ?>">
-        <h2>Hình ảnh</h2>
-        <img src="<?= $product['image_product'] ?>" alt="" width="200px">
-        <input type="file" name="file"> <br>
-        <h2>Danh mục sản phẩm</h2>
-        <select name="category" id="category">
-            <?php foreach ($category as $cate) : ?>
-                <option value="<?= $cate['id_category'] ?>" <?= $cate['id_category'] == $product['id_category'] ? 'selected' : '' ?>>
-                    <?= $cate['category_name'] ?>
-                </option>
-            <?php endforeach; ?>
-        </select><br>
-        <input type="submit" value="Cập nhật">
-    </form>
-    <a href="?act=main">Về trang quản trị</a>
-</body>
-
-</html>
+<div class="row">
+    <?php require "inc/nav_bar.php"; ?>
+    <div class="col-md-8">
+        <h1>Form</h1>
+        <form action="" enctype="multipart/form-data" method="POST">
+            <h2>Tên sản phẩm</h2>
+            <input type="text" name="name_product" value="<?= $product['name_product'] ?>">
+            <h2>Mã sản phẩm</h2>
+            <input type="text" name="code_product" value="<?= $product['code_product'] ?>">
+            <h2>Giá sản phẩm</h2>
+            <input type="text" name="price_product" value="<?= $product['price_product'] ?>">
+            <h2>Mô tả sản phẩm</h2>
+            <input type="text" name="desc_product" value="<?= $product['desc_product'] ?>">
+            <h2>Chi tiết sản phẩm</h2>
+            <textarea name="detail_product" id="" cols="30" rows="10"><?= $product['desc_product'] ?></textarea>
+            <h2>Ngày thêm sản phẩm</h2>
+            <input type="date" name="create_date" value="<?= $product['create_date'] ?>">
+            <h2>Hình ảnh</h2>
+            <img src="<?= $product['image_product'] ?>" alt="" width="200px">
+            <input type="file" name="file"> <br>
+            <h2>Danh mục sản phẩm</h2>
+            <select name="category" id="category">
+                <?php foreach ($category as $cate) : ?>
+                    <option value="<?= $cate['id_category'] ?>" <?= $cate['id_category'] == $product['id_category'] ? 'selected' : '' ?>>
+                        <?= $cate['category_name'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select><br>
+            <input type="submit" value="Cập nhật">
+        </form>
+        <a href="?act=main">Về trang quản trị</a>
+    </div>
+</div>

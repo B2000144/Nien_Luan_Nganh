@@ -1,0 +1,45 @@
+.admin-main tr th {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 10px;
+}
+
+.admin-main tr td {
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.admin-left {
+    background-color: #3B3132;
+    height: 1200px;
+}
+
+.img-user-admin {
+    width: 150px;
+    border-radius: 20px;
+    top: -66px;
+    right: 108px;
+}
+.tabel-category{
+    width: 900px;
+}
+.form-input {
+    width: 100%;
+    appearance: none;
+    height: 50px;
+    border: 1px solid hsla(0, 0%, 44%, .25);
+    border-radius: 20px;
+    transition: all .25s linear;
+    margin: 20px 0;
+}
+.title-admin{
+    font-size: 30px;
+    font-weight: 700;
+}
+.add-product-admin  {
+    width: 100px;
+    font-size: 30px;
+}
+.form-admin{
+    width: 300px;
+}

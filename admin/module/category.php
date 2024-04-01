@@ -1,5 +1,7 @@
 <?php
 require "../data/connect.php";
+require "inc/header.php";
+require "inc/nav.php";
 $sql = "SELECT * FROM `category_product`";
 $row = mysqli_query($conn, $sql);
 $category = mysqli_fetch_all($row, MYSQLI_ASSOC);
@@ -12,31 +14,38 @@ if (isset($_POST['btn_submit'])) {
     header("location:?act=category");
 }
 ?>
-<form action="" method="post">
-    <label for="">Thêm danh mục</label><br>
-    <input type="text" name="category"><br>
-    <input type="submit" name="btn_submit" id="" value="Thêm">
-</form>
-<?php if (isset($category)) { ?>
-    <table border="1">
-        <tr>
-            <th>STT</th>
-            <th>Tên danh mục</th>
-            <th>Thao tác</th>
-        </tr>
-        <?php foreach ($category as $items) : ?>
-            <tr>
+<div class="row">
+    <?php require "inc/nav_bar.php"; ?>
+    <div class="col-md-8">
+        <form action="" method="post">
+            <div class="row d-flex justify-content-center align-items-center">
+                <label for="" class="title-admin">Thêm danh mục</label><br>
+                <div class="col-md-6"><input class="form-input" type="text" name="category"></div>
+                <div class="col-md-6 "><input type="submit" class="btn btn-primary" name="btn_submit" id="" value="Thêm"></div>
+            </div>
+        </form>
 
-                <td><?= $num += 1 ?></td>
-                <td><?= $items['category_name'] ?></td>
-                <td><a href="?act=category_edit&id=<?= $items['id_category'] ?>">sửa<a>|<a a onclick="return Del('<?php echo $items['category_name'] ?>')" href="?act=category_delete&id=<?= $items['id_category'] ?>">xóa</a></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-<?php } else {
-    echo "không tồn tại danh mục hàng hóa";
-} ?>
-<a href="?act=main">Quay trở lại trang quản trị</a>
+        <?php if (isset($category)) { ?>
+            <table class="tabel-category">
+                <tr>
+                    <th>STT</th>
+                    <th>Tên danh mục</th>
+                    <th>Thao tác</th>
+                </tr>
+                <?php foreach ($category as $items) : ?>
+                    <tr>
+
+                        <td><?= $num += 1 ?></td>
+                        <td><?= $items['category_name'] ?></td>
+                        <td><a class="pe-2 text-primary" href="?act=category_edit&id=<?= $items['id_category'] ?>"><i class="fa-solid fa-pen-to-square"></i><a>|<a a onclick="return Del('<?php echo $items['category_name'] ?>')" class=" ps-2 text-danger" href="?act=category_delete&id=<?= $items['id_category'] ?>"><i class="fa-solid fa-trash"></i></a></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php } else {
+            echo "không tồn tại danh mục hàng hóa";
+        } ?>
+    </div>
+</div>
 <script>
     function Del(name) {
         return confirm(" bạn có chắc chắn muốn danh mục sản phẩm " + name + " ? việc xóa có thể xóa tất cả sản phẩm trong danh mục");
