@@ -26,7 +26,7 @@
         </div>
         <div class="col-md-12 text-white d-flex ms-5">
             <i class="fa-solid fa-truck"></i>
-            <a href="?act=main" class="text-decoration-none text-decoration-none text-white ms-2">
+            <a href="?act=order" class="text-decoration-none text-decoration-none text-white ms-2">
                 <p>Đơn hàng</p>
             </a>
         </div>
