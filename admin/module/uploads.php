@@ -46,34 +46,64 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <div class="row">
     <?php require "inc/nav_bar.php"; ?>
-    <div class="col-md-8">
-        <h1>Form</h1>
+    <div class="col-md-10 ">
+        <h1 class="text-center py-5">Thêm mới mặt hàng</h1>
         <form action="" enctype="multipart/form-data" method="POST">
-            <h2>Tên sản phẩm</h2>
-            <input type="text" name="name_product">
-            <h2>Mã sản phẩm</h2>
-            <input type="text" name="code_product">
-            <h2>Giá sản phẩm</h2>
-            <input type="text" name="price_product">
-            <h2>Số lượng sản phẩm trong kho</h2>
-            <input type="text" name="number_product">
-            <h2>Mô tả sản phẩm</h2>
-            <input type="text" name="desc_product">
-            <h2>Chi tiết sản phẩm</h2>
-            <textarea name="detail_product" id="" cols="30" rows="10"></textarea>
-            <h2>Ngày thêm sản phẩm</h2>
-            <input type="date" name="create_date">
-            <h2>Hình ảnh</h2>
-            <input type="file" name="file"> <br>
-            <h2>Ảnh mô tả</h2>
-            <input type="file" name="files[]" multiple="multiple"> <br>
-            <h2>Danh mục sản phẩm</h2>
-            <select name="category" id="category">
-                <?php foreach ($category as $cate) : ?>
-                    <option value="<?= $cate['id_category'] ?>"><?= $cate['category_name'] ?></option>
-                <?php endforeach; ?>
-            </select><br>
-            <input type="submit" value="Thêm mới">
+            <div class="row">
+                <div class="col-md-4 input-upload">
+                    <span>Tên mặt hàng</span>
+                    <input type="text" name="name_product">
+                </div>
+                <div class="col-md-4 input-upload">
+                    <span>Mã hàng</span>
+                    <input type="text" name="code_product">
+                </div>
+                <div class="col-md-4 input-upload">
+                    <span>Giá mặt hàng</span>
+                    <input type="text" name="price_product">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 input-upload">
+                    <span>Số lượng sản phẩm trong kho</span>
+                    <input type="text" name="number_product">
+                </div>
+                <div class="col-md-4 input-upload">
+                    <span>Mô tả sản phẩm</span>
+                    <input type="text" name="desc_product">
+                </div>
+                <div class="col-md-4 input-upload">
+                    <span>Ngày thêm sản phẩm</span>
+                    <input type="date" name="create_date">
+                </div>
+            </div>
+            <div class="row ">
+                <span class="input-upload-additional ">Chi tiết sản phẩm</span>
+                <div class="col-md-4 input-upload ">
+                    <textarea name="detail_product" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <span class="input-upload-additional">Hình ảnh</span>
+                <div class="col-md-4 ">
+                    <input type="file" name="file"> <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 input-upload">
+                    <span>Danh mục sản phẩm</span>
+                    <select name="category" id="category">
+                        <?php foreach ($category as $cate) : ?>
+                            <option value="<?= $cate['id_category'] ?>"><?= $cate['category_name'] ?></option>
+                        <?php endforeach; ?>
+                    </select><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <input class="btn btn-primary" type="submit" value="Thêm mới">
+                </div>
+            </div>
         </form>
     </div>
 </div>

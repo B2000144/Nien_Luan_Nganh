@@ -43,7 +43,7 @@ get_header();
     .find_product button[type="submit"] {
         border: none;
         border-radius: 10px;
-        right: 395px;
+        right: 241px;
         top: 13px;
     }
 </style>
