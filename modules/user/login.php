@@ -78,8 +78,7 @@ if (isset($_POST['btn_login'])) {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-5"><button type="submit" name="btn_login" class="btn btn-dark btn-block mb-4">Đăng nhập</button></div>
-                        <div class="col-md-7"><button type="submit" name="btn_login" class="btn btn-block mb-4">Quên mật khẩu</button></div>
+                        <div class="col-md-5 w-100"><button type="submit" name="btn_login" class="btn btn-dark btn-block mb-4">Đăng nhập</button></div>
                     </div>
             </div>
             </form>

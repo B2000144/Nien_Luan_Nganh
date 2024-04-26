@@ -31,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             // Thực thi câu lệnh SQL
             if (mysqli_query($conn, $sql_insert)) {
-                echo "Thêm mới sản phẩm thành công!";
             } else {
                 echo "Lỗi: " . mysqli_error($conn);
             }

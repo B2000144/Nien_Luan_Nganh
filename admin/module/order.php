@@ -25,6 +25,7 @@ $num = 0;
                 <th>Nơi giao hàng</th>
                 <th>Xem chi tiết</th>
                 <th>Trạng thái đơn hàng</th>
+                <!-- <th>In đơn hàng</th> -->
             </tr>
             <?php foreach ($order as $items) : ?>
                 <tr>
@@ -39,6 +40,7 @@ $num = 0;
                     <td><?= $items['location'] ?></td>
                     <td> <a href="?act=order_detail&code=<?= $items['code_order'] ?>"><i class="fa-solid fa-circle-info"></i></a></td>
                     <td><a class="order-admin-success" href="?act=order-success&id=<?= $items['id_cart'] ?>">Hoàn thành</a></td>
+                    <!-- <td><a href="?act=print_order">in</a></td> -->
 
 
                 </tr>

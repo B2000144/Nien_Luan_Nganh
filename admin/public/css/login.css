@@ -1,0 +1,27 @@
+.form-input {
+  width: 100%;
+  appearance: none;
+  height: 50px;
+  border: 1px solid hsla(0, 0%, 44%, 0.25);
+  border-radius: 20px;
+  transition: all 0.25s linear;
+  margin: 20px 0;
+}
+.main_login_admin {
+  background-image: url("../images/Serpentine-Toronto-1.jpg");
+
+  height: 800px;
+  margin: auto;
+}
+.card-admin-blur {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}

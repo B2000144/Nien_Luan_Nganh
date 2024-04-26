@@ -11,7 +11,7 @@ $products = mysqli_fetch_all($row, MYSQLI_ASSOC);
 ?>
 <style>
     .main-cart-show {
-        height: 750px;
+        height: 100%;
     }
 
     .title-cart {

@@ -6,7 +6,7 @@ $sql = "SELECT * FROM `tbl_product`";
 $rows_product = mysqli_query($conn, $sql);
 $num_rows = mysqli_num_rows($rows_product);
 // số lượng sản phẩn cần hiển thị trên trang
-$num_per_page = 4;
+$num_per_page = 3;
 // số lượng sản phẩm khi truy vấn ra 
 $total_row = $num_rows;
 // để dùng vòng lặp for để tính ra số trang được hiển thị
