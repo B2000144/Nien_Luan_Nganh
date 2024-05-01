@@ -2,69 +2,23 @@
 get_header();
 get_header_top();
 get_header_bottom();
+// lay san pham theo id
 $id = $_GET['id'];
 $sql = "SELECT * FROM `tbl_product` WHERE product_id = '$id'";
 $row = mysqli_query($conn, $sql);
 $product = mysqli_fetch_assoc($row);
+// lay ten danh mục
 $id_category = $product['id_category'];
 $sql_cate = "SELECT * FROM `category_product`WHERE id_category = '$id_category'";
 $row_cate = mysqli_query($conn, $sql_cate);
 $category = mysqli_fetch_assoc($row_cate);
+// lay danh sach san pham theo danh muc
+$sql_category_product = "SELECT * FROM `tbl_product` WHERE id_category = '$id_category'";
+$row_category_product = mysqli_query($conn, $sql_category_product);
+$product_category = mysqli_fetch_all($row_category_product, MYSQLI_ASSOC);
 ?>
-<style>
-    .main-detail {
-        background-color: #FCFBF9;
-    }
-
-
-
-    .img-detail img {
-        width: 600px;
-
-    }
-
-    .name-product-detail p {
-        font-size: 30px;
-        font-weight: 700;
-    }
-
-    .code-product-detail {
-        font-size: 15px;
-        font-weight: 400;
-        color: (37, 36, 37, .5);
-    }
-
-    .status-detail {
-        padding-right: 10px;
-    }
-
-    .enough-detail {
-        color: #127daf;
-    }
-
-    .lack-detail {
-        color: #e30e48;
-    }
-
-    .price-product-detail p {
-        color: #e30e48;
-        font-weight: 700;
-    }
-
-    .add-cart-detail {
-        padding-left: 10px;
-    }
-
-    .category-name-detail {
-        color: #127daf;
-        margin-left: 10px;
-    }
-
-    .outstanding-detail {
-        font-weight: 700;
-        font-size: 20px;
-    }
-</style>
+<link rel="stylesheet" href="../../public/css/product.css">
+<link rel="stylesheet" href="../../public/css/detail.css">
 <div class="main-detail">
 
 
@@ -108,7 +62,28 @@ $category = mysqli_fetch_assoc($row_cate);
                     </div>
                 </div>
             </div>
-
+            <div class="related-product">
+                <h2 class="text-start py-5">Gợi ý dành cho bạn</h2>
+                <div class="container main-product_category ">
+                    <div class="row ">
+                        <?php foreach ($product_category as $products) : ?>
+                            <div class="col-sm-6 col-md-4 col-lg-3 card_product">
+                                <div class="card position-relative">
+                                    <img src="<?php echo "../../admin/" . $products['image_product'] ?>" alt="" class="img_product">
+                                    <a href="?mod=cart&act=add&id=<?= $products['product_id'] ?>" class="buy_product position-absolute w-100"><input type="submit" value="Thêm vào giỏ hàng" class="btn w-100"></a>
+                                </div>
+                                <div class="card-body text-start">
+                                    <a href="?mod=product&act=detail&id=<?= $products['product_id'] ?>">
+                                        <p class="name_product"><?= $products['name_product'] ?></p>
+                                    </a>
+                                    <p class="code_product"><?= $products['code_product'] ?></p>
+                                    <p class="price"><?= number_format($products['price_product']) . " đ"  ?></p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

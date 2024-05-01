@@ -3,6 +3,7 @@ if (isset($_POST['search'])) {
     $search = $_POST['search'];
     $sql = "SELECT * FROM tbl_product WHERE name_product LIKE '%" . $search . "%'";
     $row = mysqli_query($conn, $sql);
+    $num_rows = mysqli_num_rows($row);
     $product = mysqli_fetch_all($row, MYSQLI_ASSOC);
 }
 get_header();
@@ -73,13 +74,35 @@ get_header_top();
         list-style: none;
         padding: 5px;
     }
+
+    .title-search {
+        font-weight: 700;
+        padding-top: 10px;
+    }
+
+    .text-result {
+        display: flex;
+        align-items: center;
+        border: 1px solid hsla(0, 0%, 44%, .25);
+        ;
+
+        border-radius: 40px;
+    }
+
+    .main-search {
+        background: #FCFBF9;
+    }
 </style>
 
 <body>
     <?php get_header_bottom() ?>
-    <main>
+    <main class="main-search">
         <div class="container ">
             <div class="row ">
+                <div class="col-md-12 d-flex justify-content-start align-item-center">
+                    <h3 class=" title-search ">Kết quả tìm kiếm </h3>
+                    <div class="text-result mx-4"><span>có (<?= $num_rows ?> Kết quả)</span></div>
+                </div>
                 <?php foreach ($product as $products) : ?>
                     <div class="col-sm-6 col-md-4 col-lg-3 card_product">
                         <div class="card position-relative">

@@ -6,65 +6,11 @@ $product = mysqli_fetch_all($row, MYSQLI_ASSOC);
 get_header();
 get_header_top();
 ?>
-<style>
-    .main-product_category {
-        height: 760px;
-    }
-
-    .card {
-        width: 235px;
-        height: 335px;
-        border: none;
-        overflow: hidden;
-    }
-
-    .card_product {
-        padding-bottom: 50px;
-        padding-top: 50px;
-    }
-
-    .code_product {
-        opacity: 0.5;
-        text-decoration-color: inherit;
-    }
-
-    .buy_product {
-        background: #00ADEF;
-        bottom: -38px;
-        transition: ease-in-out 0.25s;
-        opacity: 0.9;
-    }
-
-    .buy_product input[type="submit"] {
-        color: #fff;
-    }
-
-    .card:hover .buy_product {
-        bottom: 0;
-
-    }
-
-    .card-body a {
-        text-decoration: none;
-    }
-
-
-    .price {
-        color: #e30e48;
-        font-size: 20px;
-        font-weight: 500;
-    }
-
-    .name_product {
-        font-weight: 400;
-        color: #000;
-        margin-top: 10px;
-    }
-</style>
+<link rel="stylesheet" href="../../public/css/product.css">
 
 <body>
     <?php get_header_bottom() ?>
-    <main>
+    <main id="main_product_category">
         <div class="container main-product_category ">
             <div class="row ">
                 <?php foreach ($product as $products) : ?>
