@@ -1,0 +1,50 @@
+/* detail */
+.main-detail {
+  background-color: #fcfbf9;
+}
+
+.img-detail img {
+  width: 600px;
+}
+
+.name-product-detail p {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.code-product-detail {
+  font-size: 15px;
+  font-weight: 400;
+  color: (37, 36, 37, 0.5);
+}
+
+.status-detail {
+  padding-right: 10px;
+}
+
+.enough-detail {
+  color: #127daf;
+}
+
+.lack-detail {
+  color: #e30e48;
+}
+
+.price-product-detail p {
+  color: #e30e48;
+  font-weight: 700;
+}
+
+.add-cart-detail {
+  padding-left: 10px;
+}
+
+.category-name-detail {
+  color: #127daf;
+  margin-left: 10px;
+}
+
+.outstanding-detail {
+  font-weight: 700;
+  font-size: 20px;
+}

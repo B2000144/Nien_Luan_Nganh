@@ -22,6 +22,6 @@ get_header();
     .back_home {}
 </style>
 <div class="thank_body">
-    <p class="title_thank">Cảm ơn bạn đã mua hàng</p>
+    <p class="title_thank">Cảm ơn bạn đã mua hàng vui lòng kiểm tra email để xem chi tiết</p>
     <a class="back_home" href="?mod=home&act=main">Quay trở về trang chủ</a>
 </div>

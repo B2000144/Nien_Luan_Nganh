@@ -2,6 +2,11 @@
 get_header();
 get_header_top();
 get_header_bottom();
+$request = $_GET['request'];
+if ($request == 'false') {
+    $error = 'Bạn cần phải đăng nhập tài khoản để mua hàng';
+}
+
 ?>
 <style>
     .cart-header-info {
@@ -87,12 +92,13 @@ get_header_bottom();
 </style>
 <div class="main">
     <div class="container">
-        <h1 class="text-start pb-5">Thanh toán</h1>
+        <h1 class="text-start pb-5 ">Thanh toán</h1>
         <div class="row">
             <div class="col-md-8 text-start d-block">
                 <form action="?mod=cart&act=payment" method="POST">
                     <div class="block-top">
                         <div class="row">
+                            <span class="error py-2 fs-5"><?= $error ?></span>
                             <div class="col-md-6">
                                 <span class="title-order">Địa chỉ giao hàng</span>
                             </div>
@@ -166,15 +172,6 @@ get_header_bottom();
                             </div>
                         </div>
                     </div>
-                    <!-- <input type="submit" value="đặt hàng" name="btn_submit"> -->
-
-
-                    <!-- <form action="?mod=pay&act=pay_infomation" method="POST" enctype="application/x-www-form-urlencoded">
-                    <input type="submit" value="Thanh toán MOMO QRcode">
-                </form>
-                <form action="?mod=pay&act=payment_atm" method="POST" enctype="application/x-www-form-urlencoded">
-                    <input type="submit" value="Thanh toán qua MOMO ATM">
-                </form> -->
             </div>
             <div class="col-md-4">
                 <div class="card">

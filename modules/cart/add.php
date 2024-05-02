@@ -15,6 +15,7 @@ if ($row && mysqli_num_rows($row) > 0) {
         'price_product' => $product['price_product'],
         'code_product' => $product['code_product'],
         'image_product' => $product['image_product'],
+        'number_product' => $product['number_product'],
         'qty' => $qty,
         'sub_total' => $product['price_product'] * $qty
     );

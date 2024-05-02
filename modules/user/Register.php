@@ -71,7 +71,7 @@ if (isset($_POST['btn_register'])) {
 </style>
 <div class="main-register position-relative">
     <img class="img-login position-absolute " src="https://js0fpsb45jobj.vcdn.cloud/storage/upload/media/login/image83-standard-scale-2-00x-gigapixel.png" alt="">
-    <div class="container ">
+    <div class="container pb-5">
         <div class="row">
             <div class="col-md-4  bg-white mt-5 rounded p-4">
                 <p class="text-start title_login pt-2">Đăng ký</p>

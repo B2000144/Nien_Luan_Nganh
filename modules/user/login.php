@@ -21,7 +21,7 @@ if (isset($_POST['btn_login'])) {
         if ($count == 1) {
             $_SESSION['is_login_user'] = true;
             $_SESSION['username'] = $user['name'];
-
+            $_SESSION['email'] = $user['user_name'];
             redirect("?mod=home&act=main");
         }
     }

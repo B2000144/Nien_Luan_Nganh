@@ -16,6 +16,7 @@ if (file_exists($path)) { // hàm kiểm tra tồn tại trang
     require "inc/404.php"; //không tồn tại trang
 }
 ?>
+<link rel="stylesheet" href="public/css/style.css">
 <div id="main">
 
 </div>

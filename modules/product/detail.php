@@ -45,8 +45,9 @@ $product_category = mysqli_fetch_all($row_category_product, MYSQLI_ASSOC);
                             <?php } ?>
                         </p>
                     </div>
-                    <div class="col-md-12 text-start price-product-detail">
+                    <div class="col-md-8 text-start price-product-detail">
                         <p><?= number_format($product['price_product']) . " đ"  ?></p>
+                        <p class="text-success">Số lượng trong kho: <?= $product['number_product']  ?></p>
                     </div>
                     <div class="col-md-12 text-start py-3">
                         <a href="?mod=cart&act=add&id=<?= $product['product_id'] ?>"><button type="submit" class="btn btn-dark"><i class="fa-solid fa-cart-plus"></i><span class="add-cart-detail">Thêm vào giỏ hàng</span></button></a>

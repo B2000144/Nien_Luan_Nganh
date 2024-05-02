@@ -14,6 +14,10 @@ $products = mysqli_fetch_all($row, MYSQLI_ASSOC);
         height: 100%;
     }
 
+    .cart-body {
+        min-height: 500px;
+    }
+
     .title-cart {
         font-size: 30px;
         font-weight: 700;
@@ -77,7 +81,7 @@ $products = mysqli_fetch_all($row, MYSQLI_ASSOC);
 <div class="container main-cart-show">
     <p class="text-start pb-5 title-cart">Giỏ hàng</p>
     <div class="row cart-left">
-        <div class="col-md-8">
+        <div class="col-md-8 cart-body">
             <form action="?mod=cart&act=update" method="POST">
                 <div class="row cart-table-header">
                     <div class="col-md-3 fw-bold">Thông tin sản phẩm</div>
@@ -95,7 +99,7 @@ $products = mysqli_fetch_all($row, MYSQLI_ASSOC);
                                 </div>
                             </div>
                             <div class="col-md-3 fw-bold d-flex align-items-center justify-content-center"><span class="price-cart"><?= number_format($items['price_product']) . "đ" ?></span></div>
-                            <div class="col-md-3 d-flex align-items-center justify-content-center"><input type="number" min="1" max="10" value="<?= $items['qty'] ?>" name="qty[<?= $items['id'] ?>]"></div>
+                            <div class="col-md-3 d-flex align-items-center justify-content-center"><input type="number" min="1" max="<?= $items['number_product'] ?>" value="<?= $items['qty'] ?>" name="qty[<?= $items['id'] ?>]"></div>
                             <div class="col-md-3 fw-bold d-flex align-items-center justify-content-center"><span class="price-cart"><?= number_format($items['sub_total']) . "đ"  ?></span> <a class="text-decoration-none delete-product" href="?mod=cart&act=delete&id=<?= $items['id'] ?>"><span class="text-delete-cart">xóa</span> </a></div>
                         </div>
                     <?php endforeach; ?>
