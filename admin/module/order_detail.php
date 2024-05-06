@@ -15,8 +15,8 @@ $total_order = 0;
 <div class="row">
     <?php require "inc/nav_bar.php"; ?>
     <div class="col-md-10">
-        <p class="title-admin text-center">Đơn hàng</p>
-        <table class="admin-main  d-flex justify-content-center align-items-center">
+        <p class="title-admin text-center">Chi tiết đơn hàng</p>
+        <table class="admin-main table table-bordered table-striped  d-flex justify-content-center align-items-center">
             <tr>
                 <th>Tên mặt hàng</th>
                 <th>Số lượng</th>

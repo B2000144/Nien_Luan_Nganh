@@ -26,7 +26,7 @@ if (isset($_POST['btn_register'])) {
     } else {
         $phone_number = $_POST['number_phone'];
     }
-    if ($_POST['password'] == $_POST['re-password']) {
+    if ($_POST['password'] == $_POST['re_password']) {
         $password = $_POST['password'];
     } else {
         $error['password'] = "Mật khẩu không khớp";
@@ -75,27 +75,23 @@ if (isset($_POST['btn_register'])) {
         <div class="row">
             <div class="col-md-4  bg-white mt-5 rounded p-4">
                 <p class="text-start title_login pt-2">Đăng ký</p>
-                <form method="POST">
+                <form method="POST" id="Validation_Register">
                     <div class="row">
                         <div class="col-md-6">
                             <p class="text-start m-0">Họ</p>
                             <input class="form-input m-0" type="text" name="surname">
-                            <?php if (!empty($error['surname'])) echo "<p class = 'error'>{$error['surname']}</p>"; ?>
                         </div>
                         <div class="col-md-6 pb-5">
                             <p class="text-start m-0">Tên</p>
                             <input class="form-input m-0" type="text" name="name">
-                            <?php if (!empty($error['name'])) echo "<p class = 'error'>{$error['name']}</p>"; ?>
                         </div>
                         <div class="col-md-12  pb-5">
                             <p class="text-start m-0">Email/tên đăng nhập</p>
                             <input class="form-input m-0" type="email" name="user_name">
-                            <?php if (!empty($error['user_name'])) echo "<p class = 'error'>{$error['user_name']}</p>"; ?>
                         </div>
                         <div class="col-md-12  pb-5">
                             <p class="text-start m-0">Số điện thoại</p>
                             <input class="form-input m-0" type="text" name="number_phone">
-                            <?php if (!empty($error['number_phone'])) echo "<p class = 'error'>{$error['number_phone']}</p>"; ?>
                         </div>
                         <div class="col-md-12  pb-5">
                             <p class="text-start m-0">Mật khẩu</p>
@@ -103,8 +99,7 @@ if (isset($_POST['btn_register'])) {
                         </div>
                         <div class="col-md-12  pb-5">
                             <p class="text-start m-0">Nhập lại mật khẩu</p>
-                            <input class="form-input m-0" type="password" name="re-password">
-                            <?php if (!empty($error['password'])) echo "<p class = 'error'>{$error['password']}</p>"; ?>
+                            <input class="form-input m-0" type="password" name="re_password">
                         </div>
                         <div class="row">
                             <div class="col-md-12">

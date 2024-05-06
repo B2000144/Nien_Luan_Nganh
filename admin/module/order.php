@@ -12,7 +12,7 @@ $num = 0;
     <div class="col-md-10">
         <p class="title-admin text-center">Đơn hàng</p>
 
-        <table class="admin-main  d-flex justify-content-center align-items-center">
+        <table class="admin-main table table-bordered table-striped  d-flex justify-content-center align-items-center">
             <tr>
                 <th>STT</th>
                 <th>Tên khách hàng</th>
@@ -23,9 +23,9 @@ $num = 0;
                 <th>Mã đơn hàng</th>
                 <th>Hình thức thanh toán</th>
                 <th>Nơi giao hàng</th>
+                <th>Ngày đặt</th>
                 <th>Xem chi tiết</th>
                 <th>Trạng thái đơn hàng</th>
-                <!-- <th>In đơn hàng</th> -->
             </tr>
             <?php foreach ($order as $items) : ?>
                 <tr>
@@ -38,13 +38,16 @@ $num = 0;
                     <td><?= $items['code_order'] ?></td>
                     <td><?= $items['payment'] ?></td>
                     <td><?= $items['location'] ?></td>
+                    <td><?= $items['date_created'] ?></td>
                     <td> <a href="?act=order_detail&code=<?= $items['code_order'] ?>"><i class="fa-solid fa-circle-info"></i></a></td>
-                    <td><a class="order-admin-success" href="?act=order-success&id=<?= $items['id_cart'] ?>">Hoàn thành</a></td>
-                    <!-- <td><a href="?act=print_order">in</a></td> -->
-
-
+                    <td><a onclick="return Del('<?= $items['code_order'] ?>')" class="order-admin-success" href="?act=order-success&id=<?= $items['id_cart'] ?>">Hoàn thành</a></td>
                 </tr>
             <?php endforeach; ?>
         </table>
     </div>
 </div>
+<script>
+    function Del(name) {
+        return confirm("bạn có chắc chắn muốn xóa thông tin giao hàng với mã đơn hàng " + name + "?");
+    }
+</script>

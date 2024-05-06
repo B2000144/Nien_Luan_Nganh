@@ -28,7 +28,7 @@ if (isset($_POST['btn_submit'])) {
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center">
                 <?php if (isset($category)) { ?>
-                    <table class="admin-main  tabel-category text-center">
+                    <table class="admin-main table table-bordered table-striped  tabel-category text-center">
                         <tr>
                             <th>STT</th>
                             <th>Tên danh mục</th>

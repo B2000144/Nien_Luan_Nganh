@@ -2,7 +2,7 @@
   background-color: #fcfbf9;
 }
 .main-product_category {
-  height: 760px;
+  min-height: 760px;
 }
 
 .card {

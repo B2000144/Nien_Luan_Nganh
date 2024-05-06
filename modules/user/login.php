@@ -3,15 +3,15 @@ get_header_top();
 get_header_bottom();
 if (isset($_POST['btn_login'])) {
     $error = array();
-    if (isset($_POST['username'])) {
-        $username = $_POST['username'];
-    } else {
+    if (empty($_POST['username'])) {
         $error['username'] = "tên đăng nhập không được để trống";
-    }
-    if (isset($_POST['password'])) {
-        $password = $_POST['password'];
     } else {
+        $username = $_POST['username'];
+    }
+    if (empty($_POST['password'])) {
         $error['password'] = "Mật khẩu không được để trống";
+    } else {
+        $password = $_POST['password'];
     }
     if (empty($error)) {
         $sql = "SELECT * FROM `tbl_user` WHERE user_name = '$username'AND password = '$password'";
@@ -23,6 +23,8 @@ if (isset($_POST['btn_login'])) {
             $_SESSION['username'] = $user['name'];
             $_SESSION['email'] = $user['user_name'];
             redirect("?mod=home&act=main");
+        } else {
+            $error['request'] = "Bạn nhập sai tk hoặc mk";
         }
     }
 }
@@ -60,18 +62,16 @@ if (isset($_POST['btn_login'])) {
             <div class="col-md-4  bg-white mt-5 rounded p-4">
                 <p class="text-start title_login pt-2">Đăng nhập</p>
                 <p class="text-start pb-3">Trở thành thành viên <a href="?mod=user&act=Register">Đăng kí ngay</a></p>
-                <form method="POST">
+                <form method="POST" id="Validation_Login" autocomplete="off">
                     <div class="row">
                         <div class="col-md-12 ">
                             <p class="text-start m-0">Tài khoản</p>
-                            <?php if (!empty($error['username'])) echo "<p class = 'error'>{$error['username']}</p>"; ?>
                         </div>
                         <div class="col-md-12 pb-5">
                             <input class="form-input m-0" type="text" name="username">
                         </div>
                         <div class="col-md-12">
                             <p class="text-start m-0">Mật khẩu</p>
-                            <?php if (!empty($error['password'])) echo "<p class = 'error'>{$error['password']}</p>"; ?>
                         </div>
                         <div class="col-md-12 pb-5">
                             <input class="form-input  m-0" type="password" name="password">
@@ -79,6 +79,7 @@ if (isset($_POST['btn_login'])) {
                     </div>
                     <div class="row">
                         <div class="col-md-5 w-100"><button type="submit" name="btn_login" class="btn btn-dark btn-block mb-4">Đăng nhập</button></div>
+                        <div class="col-md-5 w-100"><?php echo "<p class = 'error'>{$error['request']}</p>" ?></div>
                     </div>
             </div>
             </form>

@@ -74,8 +74,8 @@ if (isset($_GET['orderType'])) {
     $content .= "<p>Điện thoại: 0704796583</p>";
     $content .= "<p>Trang Facebook: facebook.com/profile.php?id=61557692851102</p>";
     $sendMail =  $_SESSION['email'];
+    
     $mail = new Mailer;
-
     $mail->sendMail($title, $content, $sendMail);
 }
 unset($_SESSION['cart']);

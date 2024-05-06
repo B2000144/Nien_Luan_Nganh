@@ -1,6 +1,9 @@
 <?php
 $result = mysqli_query($conn, "SELECT * FROM `tbl_product` ");
 $product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+if (isset($_GET['add_cart'])) {
+    echo '<div class="alert alert-danger" role="alert">Sản phẩm không đủ số lượng để thêm vào giỏ hàng!</div>';
+}
 get_header();
 get_header_top();
 

@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $desc = $_POST['desc_product'];
     $detail = $_POST['detail_product'];
     $date = $_POST['create_date'];
+    $number = $_POST['number_product'];
 
     // trường hợp người dùng thay ảnh mới
     if ($_FILES['file']['size'] > 0) {
@@ -39,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $selected_category_id = $_POST['category'];
     $image_product = $product['image_product'];
     //sql update
-    $sql = "UPDATE `tbl_product` SET `name_product`='$name',`code_product`='$code',`price_product`='$price',`desc_product`='$desc',`detail_product`='$detail',`image_product`='$path_file',`create_date`='$date',`id_category`='$selected_category_id' WHERE product_id = $id_product";
+    $sql = "UPDATE `tbl_product` SET `number_product`='$number',`name_product`='$name',`code_product`='$code',`price_product`='$price',`desc_product`='$desc',`detail_product`='$detail',`image_product`='$path_file',`create_date`='$date',`id_category`='$selected_category_id' WHERE product_id = $id_product";
     if (mysqli_query($conn, $sql)) {
         header("location:?act=main");
     } else {
